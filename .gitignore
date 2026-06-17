@@ -1,5 +1,4 @@
 #1. Ignore all raw data files so they stay local on my computer
-*.txt
 *.csv
 *.xlsx
 
