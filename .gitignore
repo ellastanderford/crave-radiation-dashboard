@@ -1,0 +1,10 @@
+#1. Ignore all raw data files so they stay local on my computer
+*.txt
+*.csv
+*.xlsx
+
+#2 Ignore python system junk and environment folders
+__pycache__/
+.venv/
+venv/
+.pytest_cache/
