@@ -30,7 +30,7 @@ def load_actual_bsrn_data(file_path):
     latitude = 0
     longitude = 0
     #reading the file and storing the data
-    with open("file_path", "r") as input:
+    with open(file_path, "r") as input:
         for line in input:
             if '#' not in line:
                 longwave_global_data.append(float(line.split()[17]))
@@ -81,7 +81,7 @@ try:
     st.sidebar.success(f"Loaded active file: {target_filename}")
     data_loaded = True
 except FileNotFoundError:
-    st.sidebar.error("Data Loading Error: The file {target_filename} could not be found")
+    st.sidebar.error(f"Data Loading Error: The file {target_filename} could not be found")
     st.sidebar.info("Please verify that the file exists or select a different month.")
     st.stop()
 
@@ -118,7 +118,7 @@ if data_loaded:
         ax.grid(True, linestyle=':', alpha=0.6)
         ax.legend(loc='upper right', fontsize=10)
         #generates minimum, maximum, mean, standard deviation, and standard error for data
-        if not clean_df['LW_Global'].mask.all():
+        if not clean_df['LW_Global'].isna().all():
             LW_global_min = round(clean_df['LW_Global'].min(), 2)
             LW_global_max = round(clean_df['LW_Global'].max(), 2)
             LW_global_mean = round(clean_df['LW_Global'].mean(), 2)
@@ -126,7 +126,7 @@ if data_loaded:
             LW_global_err = round(clean_df['LW_Global'].std() / np.sqrt(len(clean_df['LW_Global'])), 2)
         else:
             LW_global_min = LW_global_max = LW_global_mean = LW_global_std = LW_global_err = "N/A"
-        if not clean_df['SW_Global'].mask.all():
+        if not clean_df['SW_Global'].isna().all():
             SW_global_min = round(clean_df['SW_Global'].min(), 2)
             SW_global_max = round(clean_df['SW_Global'].max(), 2)
             SW_global_mean = round(clean_df['SW_Global'].mean(), 2)
@@ -134,7 +134,7 @@ if data_loaded:
             SW_global_err = round(clean_df['SW_Global'].std() / np.sqrt(len(clean_df['SW_Global'])), 2)
         else:
             SW_global_min = SW_global_max = SW_global_mean = SW_global_std = SW_global_err = "N/A"
-        if not clean_df['SW_Direct'].mask.all():
+        if not clean_df['SW_Direct'].isna().all():
             SW_direct_min = round(clean_df['SW_Direct'].min(), 2)
             SW_direct_max = round(clean_df['SW_Direct'].max(), 2)
             SW_direct_mean = round(clean_df['SW_Direct'].mean(), 2)
@@ -142,7 +142,7 @@ if data_loaded:
             SW_direct_err = round(clean_df['SW_Direct'].std() / np.sqrt(len(clean_df['SW_Direct'])), 2)
         else:
             SW_direct_min = SW_direct_max = SW_direct_mean = SW_direct_std = SW_direct_err = "N/A"
-        if not clean_df['SW_Diffuse'].mask.all():
+        if not clean_df['SW_Diffuse'].isna().all():
             SW_diffuse_min = round(clean_df['SW_Diffuse'].min(), 2)
             SW_diffuse_max = round(clean_df['SW_Diffuse'].max(), 2)
             SW_diffuse_mean = round(clean_df['SW_Diffuse'].mean(), 2)
@@ -172,8 +172,8 @@ if data_loaded:
         for row in range(len(table_data)):
             for col in range(len(table_data[0])):
                 cell_dict[(row, col)].set_height(0.05)
-            with st.expander("View Static Export Form", expanded=True):
-                st.pyplot(fig)
+        with st.expander("View Static Export Form", expanded=True):
+            st.pyplot(fig)
 
     #interactive web view
     st.subheader("In-Browser Interactive Radiation Graph")
