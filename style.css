@@ -1,0 +1,191 @@
+/* 1. Global Page Settings & Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Ultra-light professional gray */
+    color: #212529;
+}
+
+/* 2. Main Title Design */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700 !important;
+    color: #0f172a !important; /* Deep slate blue */
+    letter-spacing: -0.05em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 25px !important;
+}
+
+/* 3. Streamlit Cards (Container Blocks) */
+[data-testid="stMetric"], 
+.stSelectbox, 
+.stMultiSelect,
+[data-testid="stExpander"] {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add a subtle hover effect to interactive blocks */
+.stSelectbox:hover, .stMultiSelect:hover {
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 4. Sidebar Transformation */
+[data-testid="stSidebar"] {
+    background-color: #0f172a !important; /* Dark, authoritative slate */
+    color: #ffffff !important;
+    border-right: 1px solid #1e293b;
+}
+
+/* Sidebar Text Color Fixes */
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] label {
+    color: #f8fafc !important;
+}
+
+/* 5. Custom Button Styling */
+.stButton > button {
+    background-color: #2563eb !important; /* Primary Scientific Blue */
+    color: white !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 10px 24px !important;
+    width: 100%;
+    transition: all 0.3s ease !important;
+}
+
+.stButton > button:hover {/* ==========================================================================
+   1. Global Page Settings & Typography
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Ultra-light professional gray */
+    color: #212529;
+}
+
+/* ==========================================================================
+   2. Main Title Design
+   ========================================================================== */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700 !important;
+    color: #0f172a !important; /* Deep slate blue */
+    letter-spacing: -0.05em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 25px !important;
+}
+
+/* ==========================================================================
+   3. Streamlit Cards (Container Blocks)
+   ========================================================================== */
+[data-testid="stMetric"], 
+.stMultiSelect,
+[data-testid="stExpander"] {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add a subtle hover effect to interactive blocks */
+.stMultiSelect:hover {
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ==========================================================================
+   4. Sidebar Transformation
+   ========================================================================== */
+[data-testid="stSidebar"] {
+    background-color: #0f172a !important; /* Dark, authoritative slate */
+    color: #ffffff !important;
+    border-right: 1px solid #1e293b;
+}
+
+/* Sidebar Text Color Fixes */
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] label {
+    color: #f8fafc !important;
+}
+
+/* ==========================================================================
+   5. Compact Month Selector Widget
+   ========================================================================== */
+/* Reduce the container padding and limit excessive width stretching */
+div[data-testid="stSelectbox"] {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 6px 12px !important;
+    max-width: 240px; /* Keeps the dropdown sleek and narrow */
+    margin: 10px auto !important;   /* Centers it neatly in the sidebar */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Override default label colors to contrast nicely with the sidebar */
+div[data-testid="stSelectbox"] label p {
+    color: #0f172a !important; /* Kept dark since container background is white */
+    font-size: 0.85rem !important;
+    font-weight: 600;
+}
+
+/* Shrink the actual inner selection dropdown input bar */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] {
+    min-height: 32px !important;
+    height: 32px !important;
+}
+
+/* Clean up internal text spacing */
+div[data-testid="stSelectbox"] [data-testid="stMarkdownContainer"] p {
+    font-size: 0.85rem !important;
+}
+
+/* ==========================================================================
+   6. Custom Button Styling
+   ========================================================================== */
+.stButton > button {
+    background-color: #2563eb !important; /* Primary Scientific Blue */
+    color: white !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 10px 24px !important;
+    width: 100%;
+    transition: all 0.3s ease !important;
+}
+
+.stButton > button:hover {
+    background-color: #1d4ed8 !important; /* Darker blue on hover */
+    box-shadow:
+    background-color: #1d4ed8 !important; /* Darker blue on hover */
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button:active {
+    transform: translateY(1px);
+}
+
+/* 6. Hide Default Streamlit Clutter */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {background: transparent !important;}
